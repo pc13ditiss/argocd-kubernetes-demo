@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: demo-web-one
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-web-one
+  template:
+    metadata:
+      labels:
+        app: demo-web-one
+    spec:
+      containers:
+        - name: demo-web-one
+          image: nginx:1.25
+          ports:
+            - containerPort: 80
